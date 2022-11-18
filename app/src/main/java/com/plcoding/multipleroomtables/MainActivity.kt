@@ -2,6 +2,7 @@ package com.plcoding.multipleroomtables
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import androidx.lifecycle.lifecycleScope
 import com.plcoding.multipleroomtables.entities.Director
 import com.plcoding.multipleroomtables.entities.School
@@ -59,8 +60,9 @@ class MainActivity : AppCompatActivity() {
             studentSubjectRelations.forEach { dao.insertStudentSubjectCrossRef(it) }
 
             val schoolWithDirector = dao.getSchoolAndDirectorWithSchoolName("Kotlin School")
-
             val schoolWithStudents = dao.getSchoolWithStudents("Kotlin School")
+            val q = dao.getSchoolAndDirectorWithSchoolName("Kotlin School")
+            Log.i("TAG", "getSchoolAndDirectorWithSchoolName: ${q.size}")
         }
     }
 }
